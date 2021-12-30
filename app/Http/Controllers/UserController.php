@@ -17,6 +17,7 @@ class UserController extends Controller
         else
         {
             $request->session()->put('user',$user);
+            $user -> ip = $request->getClientIp();
             return redirect('/');
         }
         return $user;
