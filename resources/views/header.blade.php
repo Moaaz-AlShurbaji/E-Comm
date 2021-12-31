@@ -16,6 +16,11 @@
       <li class="nav-item">
         <a class="nav-link" href="#">cart(0)</a>
       </li>
+      @if($user = Session::get('user'))
+        <li class="nav-item">
+          <a class="nav-link">Welcome {{ $user->name }}</a>
+        </li>
+      @endif
     </ul>
     
     <form class="form-inline my-2 my-lg-0">

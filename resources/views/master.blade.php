@@ -28,5 +28,22 @@
             height: 580px;
             padding-top: 100px;
         }
+        img.slider_img{
+            height: 650px !important;
+        }
+        .custom-product{
+            padding-bottom: 90px;
+        }
+        .carousel-caption{
+            background-color: #515558c4;
+        }
+        .trending-wrapper{
+            margin-top:50px;
+        }
+        
+        .trend-link:hover{
+            transition-duration: 1s;
+            background-color: #007bff;
+        }
     </style>
 </html>

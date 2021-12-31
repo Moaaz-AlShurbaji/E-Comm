@@ -17,6 +17,7 @@ Route::get('/login', function () {
     return view('login');
 });
 Route::get('/','ProductController@index');
+Route::get('details/{product_id}','ProductController@details');
 
 
 Route::post('/login',"UserController@login");
