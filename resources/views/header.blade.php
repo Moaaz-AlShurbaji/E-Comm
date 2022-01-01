@@ -1,3 +1,8 @@
+<?php
+use App\Http\Controllers\ProductController;
+$total = ProductController::cartItem();
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">E-Commerce</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,11 +19,11 @@
         <a class="nav-link" href="#">Orders</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">cart(0)</a>
+        <a class="nav-link" href="#">cart({{ $total }})</a>
       </li>
       @if($user = Session::get('user'))
         <li class="nav-item">
-          <a class="nav-link">Welcome {{ $user->name }}</a>
+          <a class="nav-link">{{ $user->name }}</a>
         </li>
       @endif
     </ul>
