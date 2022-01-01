@@ -45,5 +45,16 @@
             transition-duration: 1s;
             background-color: #007bff;
         }
+        .product-img{
+            margin-top: 20px;
+            padding-bottom: 90px;
+        }
+        /*.search-img{
+            width:500px !important
+        }*/
+        .footer{
+            position:relative;
+            bottom:0px;
+        }
     </style>
 </html>

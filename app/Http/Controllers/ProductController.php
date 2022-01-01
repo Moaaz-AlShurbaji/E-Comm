@@ -15,6 +15,13 @@ class ProductController extends Controller
     public function details($product_id)
     {
         $product_details = Product::FindorFail($product_id);
-        return $product_details;
+        return view('product.details',\compact('product_details'));
+    }
+
+    public function search(Request $request)
+    {
+       // return $request->input();
+       $results = Product::where('name','like','%'.$request->search.'%')->get();
+       return view('product.search',compact('results'));
     }
 }
