@@ -23,5 +23,5 @@ Route::post('/add-to-cart','ProductController@addToCart');
 
 
 Route::post('/login',"UserController@login");
-
+Route::get('/logout',"UserController@logout");
 

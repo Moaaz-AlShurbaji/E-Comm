@@ -41,8 +41,11 @@
             margin-top:50px;
         }
         
-        .trend-link:hover{
+        .trend-link{
             transition-duration: 1s;
+        }
+        .trend-link:hover{
+            
             background-color: #007bff;
         }
         .product-img{

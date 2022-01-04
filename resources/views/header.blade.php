@@ -1,6 +1,11 @@
 <?php
 use App\Http\Controllers\ProductController;
-$total = ProductController::cartItem();
+$total = 0;
+if(Session::has('user'))
+{
+  $total = ProductController::cartItem();
+}
+
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,10 +27,22 @@ $total = ProductController::cartItem();
         <a class="nav-link" href="#">cart({{ $total }})</a>
       </li>
       @if($user = Session::get('user'))
-        <li class="nav-item">
-          <a class="nav-link">{{ $user->name }}</a>
-        </li>
+      
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ $user->name }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/logout">Logout</a>
+          
+      </li>
+      
+      @else
+      
+        <a class="nav-link" href="/login">Login</a>
+      
       @endif
+      
     </ul>
     
     <form action="/search" class="form-inline my-2 my-lg-0">
