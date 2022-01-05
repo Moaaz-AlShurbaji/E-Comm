@@ -11,10 +11,9 @@
                             <h5>{{ $product->name }}</h5>
                             
                     </a>
-                    <form action="">
-                        <input type="hidden" name="item" value="{{ $product->id }}">
-                        <button class="btn btn-warning">Remove From Cart</button>
-                    </form>
+                    
+                    <a href="/remove-from-cart/{{ $product->carts_id }}" class="btn btn-warning">Remove From Cart</a>
+                    
                 </div>
             
         
