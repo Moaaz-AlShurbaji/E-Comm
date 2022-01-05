@@ -20,6 +20,7 @@ Route::get('/','ProductController@index');
 Route::get('/details/{product_id}','ProductController@details');
 Route::get('/search','ProductController@search');
 Route::post('/add-to-cart','ProductController@addToCart');
+Route::get('/cart-list','ProductController@cartList');
 
 
 Route::post('/login',"UserController@login");
