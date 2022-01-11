@@ -2,7 +2,8 @@
 @section('content')
 <div class="container">
     <h1 class="text-center">Cart Items</h1>
-
+    <a class="btn btn-success" href="/ordernow">Order Now</a>
+    <hr>
     <div class="row">
         @foreach ($products as $product)
                 <div class="col-sm-12 col-lg-4" >
