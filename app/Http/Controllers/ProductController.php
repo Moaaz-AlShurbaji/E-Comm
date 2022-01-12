@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Cart;
+use App\Order;
 use Session;
 class ProductController extends Controller
 {
@@ -89,5 +90,30 @@ class ProductController extends Controller
             ->sum('products.price');
 
             return view('product.ordernow',compact('total'));    
+    }
+
+    public function orderPlace(Request $request)
+    {
+        $request->validate([
+            "address" => "required",
+            "payment" => "required"
+        ]);
+        $userId = Session::get('user')['id'];
+        $carts = Cart::where('user_id',$userId)->get();
+        foreach($carts as $cart)
+        {
+            Order::create([
+                'product_id' => $cart->product_id,
+                'user_id' => $cart->user_id,
+                'status' => 'pending',
+                'payment_method' => $request->payment,
+                'payment_status' => 'pending',
+                'address' => $request->address
+
+            ]);
+            Cart::destroy($cart->id);
+        }
+        return redirect('/');
+        
     }
 }
