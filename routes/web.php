@@ -25,6 +25,7 @@ Route::get('/cart-list','ProductController@cartList');
 Route::get('/remove-from-cart/{carts_id}','ProductController@removeCart');
 Route::get('/ordernow','ProductController@orderNow');
 Route::post('/orderplace','ProductController@orderPlace');
+Route::get('/myorders','ProductController@orderList');
 
 //user controller routes
 Route::post('/login',"UserController@login");

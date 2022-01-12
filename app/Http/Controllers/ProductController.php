@@ -114,6 +114,22 @@ class ProductController extends Controller
             Cart::destroy($cart->id);
         }
         return redirect('/');
-        
+    }
+
+    public function orderList()
+    {
+        if(!Session::has('user'))
+        {
+            return redirect('/login');
+        }
+        else
+        {
+            $userId = Session::get('user')['id'];
+            $orders = $products = DB::table('orders')
+            ->join('products','orders.product_id','=','products.id')
+            ->where('orders.user_id',$userId)
+            ->get();
+            return view('product.orders', compact('orders'));
+        }
     }
 }
