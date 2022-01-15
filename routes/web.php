@@ -30,4 +30,5 @@ Route::get('/myorders','ProductController@orderList');
 //user controller routes
 Route::post('/login',"UserController@login");
 Route::get('/logout',"UserController@logout");
-
+Route::get('/register',"UserController@registerPage");
+Route::post('/user-registered',"UserController@registerUser");

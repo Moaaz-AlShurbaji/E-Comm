@@ -29,4 +29,22 @@ class UserController extends Controller
         Session::forget('user');
         return redirect('/');
     }
+
+    public function registerPage()
+    {
+        return view('register');
+    }
+
+    public function registerUser(Request $request)
+    {
+        //return $request->input();
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+
+        $request->session()->put('user',$user);
+        return redirect('/');
+    }
 }
